@@ -1,0 +1,12 @@
+<ion-scroll direction="x" class="wide-as-needed">
+  <div class="scrollContainer">
+    <div class="list card officeCard" ng-repeat="office in message.data | limitTo:5" on-tap="dash.showRoute(office.latitude,office.longitude)">
+      <div class="item item-body">
+        <div statement-map-img coordinates="{{office.latitude}},{{office.longitude}}" class="mapHeight"></div>
+        <p>
+          {{office.address}}
+        </p>
+      </div>
+    </div>
+  </div>
+</ion-scroll>
