@@ -1,0 +1,57 @@
+<ion-view class="distContainer" view-title="Api-Ai">
+  <ion-header-bar class="head">
+    <div class="row">
+      <div class="col co-20" ></div>
+      <div class="col col-50 text-center" on-tap="showToggle = !showToggle">
+        <img src="img/bender.png" >
+      </div>
+      <div class="col col-20">
+        <button ng-click="dash.record()" type="button" class="button button-full button-positive" ng-class="{'button-positive':!dash.isRecording, 'button-assertive':dash.isRecording }"><i class="fa fa-microphone" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    </ion-header-bar>
+  <ion-content class="padding ">
+    <div class="row" ng-if="showToggle">
+      <div class="col text-center toggleCont">
+        <label>BankBot</label>
+        <label class="toggle" ng-click="dash.isPizzaBot = !dash.isPizzaBot">
+           <input type="checkbox">
+           <div class="track">
+             <div class="handle"></div>
+           </div>
+        </label>
+        <label>Pizza</label>
+      </div>
+    </div>
+    <div class="msgContainer" ng-repeat="message in dash.messages" >
+      <div class="row botResp" ng-class="{'fromBot':message.from=='bot' , 'fromMe': message.from=='me'}">
+        <div class="resp">
+          {{message.text}}
+        </div>
+      </div>
+      <div class="resp office" ng-if="message.type == 'office'">
+        <ion-scroll direction="x" class="wide-as-needed">
+          <div class="scrollContainer">
+            <div class="list card officeCard" ng-repeat="office in message.data | limitTo:5" on-tap="dash.showRoute(office.latitude,office.longitude)">
+              <div class="item item-body">
+                <div statement-map-img coordinates="{{office.latitude}},{{office.longitude}}" class="mapHeight"></div>
+                <p>
+                  {{office.address}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </ion-scroll>
+      </div>
+
+    </div>
+  </ion-content>
+  <ion-footer-bar keyboard-attach class="bar-stable item-input-inset">
+      <label class="item-input-wrapper">
+        <input id="input" ng-model="dash.msg" type="text" placeholder="What do you want" on-return="dash.sendMessage(); dash.closeKeyboard()" on-focus="dash.inputUp()" on-blur="dash.inputDown()" />
+      </label>
+      <button class="button button-clear" ng-click="dash.sendMessage()">
+        <b>Send</b>
+      </button>
+    </ion-footer-bar>
+</ion-view>

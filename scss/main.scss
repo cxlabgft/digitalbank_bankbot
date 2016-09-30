@@ -1,0 +1,133 @@
+@mixin flex {
+    display: flex;
+    display: -webkit-flex;
+    display: -webkit-box;
+}
+
+@mixin aligns-items($align: stretch) {
+    align-items: $align;
+    -webkit-align-items: $align;
+    -webkit-box-align: $align;
+}
+
+@mixin justify-content($pack: start) {
+    justify-content: $pack;
+    -webkit-justify-content: $pack;
+    -webkit-box-pack: $pack;
+}
+
+.row + .row{
+    margin:0 !important;
+}
+.platform-android .bar .title{
+    text-align: center !important;
+}
+
+.login{
+    .loginLogo{
+        margin:2em 0em;
+        img{width:100%;}
+    }
+    .list{margin-bottom:2em;}
+    .padding{
+        padding-bottom:0;
+        button{background-color:#004589;}
+    }
+    .errorLogin{color: red;}
+}
+
+.distContainer{
+    background-image: url("../img/background.jpg");
+    .head{
+        background-color:transparent;
+        height: 150px !important;
+        border:0;
+        .row{
+            @include flex();
+            @include aligns-items(center);
+            @include justify-content(center)
+            font-size:1.5em;
+            margin-bottom: 1em;
+            img{width:100px;}
+            button{
+                border-radius:50px;
+                width:60px;
+                height:60px;
+                @include flex();
+                @include aligns-items(center);
+                @include justify-content(center);
+                i{font-size: 1.2em;}
+            }
+        }
+    }
+    .has-header{
+        top:110px !important;
+    }
+    .bar{background-image:none;}
+    .question{
+        margin:0;
+        margin-bottom: .5em !important;
+        @include flex();
+        @include aligns-items(center);
+        .qCol{
+            @include flex();
+            @include aligns-items(center);
+            @include justify-content(center);
+            .form-group{width:100%;}
+        }
+    }
+    .botResp{
+        &.fromMe{
+            justify-content:flex-end;
+            text-align:right;
+            .resp{
+                background: #16db16;
+                border: 1px solid #16db16;
+            }
+        }
+        &.fromBot{
+            justify-content:flex-start;
+            .resp{
+                background: #1fcdd7;
+                border: 1px solid #1fcdd7;
+                .wide-as-needed {
+                  overflow: scroll;
+                  white-space: nowrap;
+                }
+            }
+        }
+        .resp{
+            padding:.7em 1.5em;
+            margin: .7em 0em;
+            border-radius:20px;
+            background-color:#fff;
+        }
+
+    }
+    .scrollContainer{
+      @include flex();
+      flex-direction:row;
+      .officeCard{
+        margin:0 .5em;
+        width: 230px;
+        border-radius: 10px;
+        @include flex();
+        @include aligns-items(center);
+        @include justify-content(center);
+        .mapHeight{
+          width:100%;
+          height:180px;
+        }
+      }
+    }
+    .toggleCont{
+        @include flex();
+        @include aligns-items(center);
+        @include justify-content(center);
+        label{margin:0 .2em; color: #000;}
+    }
+
+}
+.scroll {
+  min-width: 100% !important;
+}

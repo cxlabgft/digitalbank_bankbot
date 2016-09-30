@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="twitter:card" content="photo">
+<meta name="twitter:site" content="">
+<meta name="twitter:creator" content="">
+<meta name="twitter:title" content="">
+<meta name="twitter:image:src" content="https://dl.dropboxusercontent.com/u/35041662/qrcode.png">
+<meta name="twitter:domain" content="">
+<meta name="twitter:app:name:iphone" content="">
+<meta name="twitter:app:name:ipad" content="">
+<meta name="twitter:app:name:googleplay" content="">
+<meta name="twitter:app:url:iphone" content="@params@">
+<meta name="twitter:app:url:ipad" content="@params@">
+<meta name="twitter:app:url:googleplay" content="@params@">
+<meta name="twitter:app:id:iphone" content="">
+<meta name="twitter:app:id:ipad" content="">
+<meta name="twitter:app:id:googleplay" content="">
+<meta name="viewport" content="width=device-width, user-scalable=no">
+</head>
+<body style="background-color:#eee;">
+    <div style="width:300px; margin:0 auto; text-align:center; margin-top:10%;">
+        <a href="@params@">
+            <img src="./qrcode.png" style="max-width:100%; height: auto;">
+        </a>
+        <h1 style="font-size:1.2em; color:#999; font-family:Arial; text-shadow:0 1px 0 #fff;">Please finish this transaction</h1>
+    </div>
+    <script>
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+
+        var find = '@params@';
+        var re = new RegExp(find, 'g');
+
+        var params = encodeURI(getParameterByName('params'));
+        console.log(params);
+        document.head.innerHTML = document.head.innerHTML.replace(re, params);
+        document.body.innerHTML = document.body.innerHTML.replace(re, params);
+        //document.getElementsByTagName('img')[0].src = "https://www.esponce.com/api/v3/generate?content=@params@&#038;format=png".replace(re, encodeURI(params));
+    </script>
+</body>
+</html>

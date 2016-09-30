@@ -1,0 +1,138 @@
+.row + .row {
+  margin: 0 !important; }
+
+.platform-android .bar .title {
+  text-align: center !important; }
+
+.login .loginLogo {
+  margin: 2em 0em; }
+  .login .loginLogo img {
+    width: 100%; }
+
+.login .list {
+  margin-bottom: 2em; }
+
+.login .padding {
+  padding-bottom: 0; }
+  .login .padding button {
+    background-color: #004589; }
+
+.login .errorLogin {
+  color: red; }
+
+.distContainer {
+  background-image: url("../img/background.jpg"); }
+  .distContainer .head {
+    background-color: transparent;
+    height: 150px !important;
+    border: 0; }
+    .distContainer .head .row {
+      display: flex;
+      display: -webkit-flex;
+      display: -webkit-box;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-align: center;
+      justify-content: center;
+      -webkit-justify-content: center;
+      -webkit-box-pack: center;
+      font-size: 1.5em;
+      margin-bottom: 1em; }
+      .distContainer .head .row img {
+        width: 100px; }
+      .distContainer .head .row button {
+        border-radius: 50px;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        display: -webkit-flex;
+        display: -webkit-box;
+        align-items: center;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        justify-content: center;
+        -webkit-justify-content: center;
+        -webkit-box-pack: center; }
+        .distContainer .head .row button i {
+          font-size: 1.2em; }
+  .distContainer .has-header {
+    top: 110px !important; }
+  .distContainer .bar {
+    background-image: none; }
+  .distContainer .question {
+    margin: 0;
+    margin-bottom: .5em !important;
+    display: flex;
+    display: -webkit-flex;
+    display: -webkit-box;
+    align-items: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center; }
+    .distContainer .question .qCol {
+      display: flex;
+      display: -webkit-flex;
+      display: -webkit-box;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-align: center;
+      justify-content: center;
+      -webkit-justify-content: center;
+      -webkit-box-pack: center; }
+      .distContainer .question .qCol .form-group {
+        width: 100%; }
+  .distContainer .botResp.fromMe {
+    justify-content: flex-end;
+    text-align: right; }
+    .distContainer .botResp.fromMe .resp {
+      background: #16db16;
+      border: 1px solid #16db16; }
+  .distContainer .botResp.fromBot {
+    justify-content: flex-start; }
+    .distContainer .botResp.fromBot .resp {
+      background: #1fcdd7;
+      border: 1px solid #1fcdd7; }
+      .distContainer .botResp.fromBot .resp .wide-as-needed {
+        overflow: scroll;
+        white-space: nowrap; }
+  .distContainer .botResp .resp {
+    padding: .7em 1.5em;
+    margin: .7em 0em;
+    border-radius: 20px;
+    background-color: #fff; }
+  .distContainer .scrollContainer {
+    display: flex;
+    display: -webkit-flex;
+    display: -webkit-box;
+    flex-direction: row; }
+    .distContainer .scrollContainer .officeCard {
+      margin: 0 .5em;
+      width: 230px;
+      border-radius: 10px;
+      display: flex;
+      display: -webkit-flex;
+      display: -webkit-box;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-align: center;
+      justify-content: center;
+      -webkit-justify-content: center;
+      -webkit-box-pack: center; }
+      .distContainer .scrollContainer .officeCard .mapHeight {
+        width: 100%;
+        height: 180px; }
+  .distContainer .toggleCont {
+    display: flex;
+    display: -webkit-flex;
+    display: -webkit-box;
+    align-items: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -webkit-box-pack: center; }
+    .distContainer .toggleCont label {
+      margin: 0 .2em;
+      color: #000; }
+
+.scroll {
+  min-width: 100% !important; }
