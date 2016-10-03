@@ -148,6 +148,9 @@
             case 'showContacts':
               getContacts(response);
               break;
+            case 'getExchange':
+              getExchange(response);
+              break;
           }
         } else {
           printResponse(response, 'noAction');
@@ -164,6 +167,12 @@
 
     function getContacts(response) {
 
+    }
+
+    function getExchange(response){
+      var data = JSON.parse(response.data);
+      response.data={source:data.source,currencies:data.quotes};
+      printResponse(response.data,response.type);
     }
 
     function printResponse(response, action) {
