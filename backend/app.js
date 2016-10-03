@@ -120,11 +120,11 @@ function getExchange(res){
   var exchangeResponse = request('GET', 'http://apilayer.net/api/live?access_key=1570b3625f2d8c8b8b6408e43ba8827a&currencies=EUR,GBP,CAD,PLN&source=USD&format=1');
 
   var botResponse = {
-    speech: "Here are the currencies:",
+    speech: "Here are you have the currencies",
     displayText: "Here are the currencies:",
     source: "BankBot",
-    data: exchangeResponse.getBody('utf8'),   //retrieve the response of the server
-    type:'currency'
+    data: {result: JSON.parse(exchangeResponse.getBody('utf8')), type: 'exchange'}   //retrieve the response of the server
+
   };
   res.send(botResponse);
 }

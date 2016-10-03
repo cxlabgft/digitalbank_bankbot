@@ -1,6 +1,18 @@
-<div class="row">
-  FROM: {{message.data.source}}
-  <div class="col" ng-repeat="currency in message.currencies">
-    {{currency}}
+<div class="row exchange">
+  <div class="col-25 text-center">
+    <img src="img/icons/EUR.png">
+    <p><b>{{message.data.currencies.USDEUR | currency:"€ "}}</b></p>
+  </div>
+  <div class="col-25 text-center">
+    <img src="img/icons/GBP.png">
+    <p><b>{{message.data.currencies.USDGBP | currency:"GBP "}}</b></p>
+  </div>
+  <div class="col-25 text-center">
+    <img src="img/icons/CAD.png">
+    <p><b>{{message.data.currencies.USDCAD | currency:"CAD "}}</b></p>
+  </div>
+  <div class="col-25 text-center">
+    <img src="img/icons/PLN.png">
+    <p><b>{{message.data.currencies.USDPLN | currency:"PLN "}}</b></p>
   </div>
 </div>

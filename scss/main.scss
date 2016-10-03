@@ -133,3 +133,10 @@
 .scroll {
   min-width: 100% !important;
 }
+
+.exchange{
+  @include flex();
+  @include aligns-items(center);
+  @include justify-content(center);
+  img{height:70px; margin: 0 .5em;}
+}

@@ -95,6 +95,12 @@
         overflow: scroll;
         white-space: nowrap; }
   .distContainer .botResp .resp {
+    display: flex;
+    display: -webkit-flex;
+    display: -webkit-box;
+    align-items: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
     padding: .7em 1.5em;
     margin: .7em 0em;
     border-radius: 20px;
@@ -136,3 +142,17 @@
 
 .scroll {
   min-width: 100% !important; }
+
+.exchange {
+  display: flex;
+  display: -webkit-flex;
+  display: -webkit-box;
+  align-items: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  justify-content: center;
+  -webkit-justify-content: center;
+  -webkit-box-pack: center; }
+  .exchange img {
+    height: 70px;
+    margin: 0 .5em; }

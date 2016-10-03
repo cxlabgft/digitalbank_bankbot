@@ -114,7 +114,7 @@
       var messageToSend = self.msg;
       self.msg = "";
       var baseUrl = "https://api.api.ai/v1/";
-      var accessToken = "f5bab9d31e4d4142b5985edfad218023";
+      var accessToken = "758a10f0e8e848d488fadd9082ac6f78";
       $.ajax({
         type: "POST",
         url: baseUrl + "query?v=20150910",
@@ -125,7 +125,7 @@
         },
         data: JSON.stringify({q: messageToSend, lang: "en"}),
         success: function (data) {
-          setResponse(JSON.stringify(data, undefined, 2));
+          setResponse(data);
         },
         error: function () {
           setResponse("Internal Server Error");
@@ -139,7 +139,7 @@
 
 
       $scope.$evalAsync(function () {
-        var response = JSON.parse(val).result;
+        var response = val.result;
         if (response.action) {
           switch (response.action) {
             case 'nearOffices':
@@ -160,7 +160,7 @@
     }
 
     function getNearOffices(response) {
-      var offices = JSON.parse(response.fulfillment.data).result;
+      var offices = response.fulfillment.data.result;
       response.data = offices;
       printResponse(response, 'office');
     }
@@ -169,10 +169,10 @@
 
     }
 
-    function getExchange(response){
-      var data = JSON.parse(response.data);
-      response.data={source:data.source,currencies:data.quotes};
-      printResponse(response.data,response.type);
+    function getExchange(response){ // Currency exchange rate euro to dollar
+      var data = response.fulfillment.data;
+      response.data={source:data.result.source,currencies:data.result.quotes};
+      printResponse(response,data.type);
     }
 
     function printResponse(response, action) {
