@@ -97,6 +97,8 @@
             }
         }
         .resp{
+            @include flex();
+            @include aligns-items(center);
             padding:.7em 1.5em;
             margin: .7em 0em;
             border-radius:20px;
