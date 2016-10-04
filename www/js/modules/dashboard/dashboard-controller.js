@@ -5,7 +5,7 @@
     .controller('DashboardCtrl', DashboardCtrl)
     .directive('input', input);
 
-  function DashboardCtrl($scope, $rootScope, $timeout, $ionicScrollDelegate) {
+  function DashboardCtrl($scope, $rootScope, $timeout, $ionicScrollDelegate, iBeaconsService) {
 
     var self = this;
 
@@ -27,7 +27,13 @@
     var recognition;
     var isIOS = ionic.Platform.isWebView() && ionic.Platform.isIOS();
     var isAndroid = ionic.Platform.isWebView() && ionic.Platform.isAndroid();
-    var isBrowser = true; //cordova-plugin-device
+    var isBrowser = false; //cordova-plugin-device
+
+      $timeout(function(){
+        iBeaconsService.searchBeacons();
+      },3000);
+
+
 
     /*GPSService.getCurrentLocation().then(function(data){
      self.position = data;

@@ -4,7 +4,8 @@
   angular
   .module('App-ai')
   .run(function (
-      $ionicPlatform) {
+      $ionicPlatform,
+      iBeaconsService) {
         console.log('INIT APP DETECTED');
           $ionicPlatform.ready(function() {
           // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -18,6 +19,8 @@
             // org.apache.cordova.statusbar required
             StatusBar.styleDefault();
           }
+          //Check Bluetooth
+          iBeaconsService.checkBluetooth();
       });
   });
 

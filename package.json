@@ -30,7 +30,9 @@
     "cordova-plugin-statusbar",
     "ionic-plugin-keyboard",
     "cordova-plugin-inappbrowser",
-    "cordova-plugin-geolocation"
+    "cordova-plugin-geolocation",
+    "com.unarin.cordova.beacon@3.4.0",
+    "cordova-plugin-bluetooth-serial@0.4.5"
   ],
   "cordovaPlatforms": []
 }
