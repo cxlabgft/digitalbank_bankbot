@@ -1,3 +1,17 @@
+/*Colors */
+
+$FontColor: #474747;
+$leftMenuBg: #333;
+$leftMenuTxt: #FFFFFF;
+$AgentLeftMenuTxt: #5B5E62;
+$menuTxt: #DCDCDC;
+$greenTxt: #7dad03;
+$blueTxt: #014A8C;
+$redTxt: #b94a48;
+$bsTxt: #00b1ca;
+$bsColor: #008bc5;
+$bsTxtColor: #FFFFFF;
+
 @mixin flex {
     display: flex;
     display: -webkit-flex;
@@ -141,7 +155,6 @@
   img{height:70px; margin: 0 .5em;}
 }
 
-/*POPUP STYLE*/
 .popupStyle {
   .popup {
     width: 260px !important;
@@ -202,3 +215,4 @@
     }
   }
 }
+
