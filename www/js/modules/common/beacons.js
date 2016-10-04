@@ -7,7 +7,7 @@
 
   //List of Beacons Comming from Server
   var serverBeacons;
-
+  var showPopup = true;
 
   /**
    * @ngdoc service
@@ -129,34 +129,34 @@
 
       //Get only branch beacons and push them into branchBeacons array
       beaconsFounded.forEach(function(beacon){
-        var index = _.findIndex(serverBeacons, function (serverBeacon) {
-          return serverBeacon.major == beacon.major && serverBeacon.branch;
-        });
-        if(index !== -1){ //Branch beacon founded
-          branchBeacons.push(serverBeacons[index]);
+        if((beacon.major == "61218" && beacon.minor == "50436") || (beacon.major == "11064" && beacon.minor == "14968")){
+          branchBeacons.push(beacon);
         }
       });
 
       if(branchBeacons.length > 0){
         console.log("¡¡¡¡¡BEACON FOUND!!!!!");
-        factory.status = branchBeacons[0].office; //Get the closer one (first position)
+        console.log("ACCURACY: " + branchBeacons[0].accuracy);
+        //factory.status = branchBeacons[0].office; //Get the closer one (first position)
         $rootScope.$evalAsync();
-        console.log(subscribers);
+        //console.log(subscribers);
         /*subscribers.forEach(function (callback) {
          callback(branchBeacons[0].office);
          });*/
-        console.log(branchBeacons[0].office);
-        var text = {};
-        text.title = 'Congratulations';
-        text.template = "<h4>You have discounts in this shop!!!</h4>";
-        text.buttons = [{
-          text: 'OK'
-        }];
-        if(showPopup){
-          ionicUtils.showPopUpGeneric(text, 'popupStyle');
-          iBeaconsService.stopSearching();
+        if(branchBeacons[0].accuracy < 0.1){
+          console.log(branchBeacons[0].office);
+          var text = {};
+          text.title = 'Congratulations';
+          text.template = "<h4>You have discounts in this shop!!!</h4>";
+          text.buttons = [{
+            text: 'OK'
+          }];
+          if(showPopup){
+            ionicUtils.showPopUpGeneric(text, 'popupStyle');
+            stopSearching();
+          }
+          showPopup = false;
         }
-        showPopup = false;
       }
     }
 

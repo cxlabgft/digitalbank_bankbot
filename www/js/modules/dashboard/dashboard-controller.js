@@ -5,7 +5,7 @@
     .controller('DashboardCtrl', DashboardCtrl)
     .directive('input', input);
 
-  function DashboardCtrl($scope, $rootScope, $timeout, $ionicScrollDelegate, iBeaconsService) {
+  function DashboardCtrl($scope, $rootScope, $timeout, $ionicScrollDelegate, iBeaconsService, $cordovaBeacon, $cordovaGeolocation) {
 
     var self = this;
 
@@ -30,7 +30,11 @@
     var isBrowser = false; //cordova-plugin-device
 
       $timeout(function(){
-        iBeaconsService.searchBeacons();
+        $cordovaGeolocation.getCurrentPosition().then(function(){
+          $cordovaBeacon.requestAlwaysAuthorization().then(function(){
+            iBeaconsService.searchBeacons();
+          });
+        });
       },3000);
 
 
