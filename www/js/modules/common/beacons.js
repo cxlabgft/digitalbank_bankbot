@@ -147,7 +147,7 @@
           console.log(branchBeacons[0].office);
           var text = {};
           text.title = 'Congratulations';
-          text.template = "<h4>You have discounts in this shop!!!</h4>";
+          text.template = "<h4>You have a 50% off in this shop! Use 'BR4U Rules' as a coupon code</h4>";
           text.buttons = [{
             text: 'OK'
           }];
