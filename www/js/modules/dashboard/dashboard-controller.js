@@ -281,10 +281,11 @@
 
     function showRecordPopup(){
       self.isRecording = true;
+      $scope.$broadcast('timer-start');
         self.confirmPopup  = $ionicPopup.confirm({
           title: '',
           templateUrl: 'templates/record.html',
-          cssClass:'recordPopup',
+          cssClass:'recordPopup animated slideInUp',
           scope: $scope,
           buttons:[]
         });

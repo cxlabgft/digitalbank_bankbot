@@ -2,15 +2,44 @@
 body {
   font-family: 'Roboto', sans-serif !important; }
 
-.row + .row {
-  margin: 0 !important; }
+.popupStyle .popup {
+  width: 260px !important;
+  border-radius: 7px !important;
+  border: 1px solid #DCDCDC !important; }
+  .popupStyle .popup .popup-head {
+    display: none; }
+  .popupStyle .popup .popup-body {
+    text-align: center; }
+    .popupStyle .popup .popup-body h3 {
+      font-size: 1.05em;
+      color: #000;
+      font-weight: 900; }
+    .popupStyle .popup .popup-body p {
+      font-weight: 400;
+      margin-bottom: 5px;
+      font-size: 0.95em; }
+    .popupStyle .popup .popup-body h4 {
+      font-weight: 500;
+      margin-bottom: 5px;
+      font-size: 1.15em; }
+    .popupStyle .popup .popup-body .item-radio .radio-icon {
+      color: #7dad03; }
+  .popupStyle .popup .popup-buttons {
+    border-top: 1px solid #DCDCDC !important;
+    min-height: 50px !important;
+    padding: 0 !important; }
+    .popupStyle .popup .popup-buttons button {
+      background-color: transparent !important;
+      border: 0;
+      color: #014A8C !important; }
 
-.platform-android .bar .title {
-  text-align: center !important; }
+.popupStyle.withTitle .popup .popup-head {
+  display: block; }
+  .popupStyle.withTitle .popup .popup-head h3.popup-title {
+    font-size: 1.2em; }
 
-.bar.bar-stable.bar-footer {
-  background-image: none;
-  background-color: #fff; }
+.popupStyle.changeCategory .popup-head {
+  display: block !important; }
 
 .bar-footer {
   height: 100px;
@@ -71,6 +100,19 @@ body {
       border-radius: 5px;
       width: 85%; }
 
+.scroll {
+  min-width: 100% !important; }
+
+.row + .row {
+  margin: 0 !important; }
+
+.platform-android .bar .title {
+  text-align: center !important; }
+
+.bar.bar-stable.bar-footer {
+  background-image: none;
+  background-color: #fff; }
+
 .login .loginLogo {
   margin: 2em 0em; }
   .login .loginLogo img {
@@ -109,8 +151,12 @@ body {
     -webkit-align-items: center;
     -webkit-box-align: center;
     margin-bottom: 1em; }
+    .distContainer .head .fRow .amadeusHead {
+      width: 100%; }
   .distContainer .head .sRow {
     padding: 0em; }
+    .distContainer .head .sRow > div {
+      padding-bottom: 1em; }
     .distContainer .head .sRow .isActive {
       border-bottom: 3px solid #fff; }
   .distContainer .head .toggleMenu {
@@ -228,9 +274,6 @@ body {
     margin: 0 .2em;
     color: #000; }
 
-.scroll {
-  min-width: 100% !important; }
-
 .exchange {
   display: flex;
   display: -webkit-box;
@@ -245,45 +288,6 @@ body {
     height: 70px;
     margin: 0 .5em; }
 
-.popupStyle .popup {
-  width: 260px !important;
-  border-radius: 7px !important;
-  border: 1px solid #DCDCDC !important; }
-  .popupStyle .popup .popup-head {
-    display: none; }
-  .popupStyle .popup .popup-body {
-    text-align: center; }
-    .popupStyle .popup .popup-body h3 {
-      font-size: 1.05em;
-      color: #000;
-      font-weight: 900; }
-    .popupStyle .popup .popup-body p {
-      font-weight: 400;
-      margin-bottom: 5px;
-      font-size: 0.95em; }
-    .popupStyle .popup .popup-body h4 {
-      font-weight: 500;
-      margin-bottom: 5px;
-      font-size: 1.15em; }
-    .popupStyle .popup .popup-body .item-radio .radio-icon {
-      color: #7dad03; }
-  .popupStyle .popup .popup-buttons {
-    border-top: 1px solid #DCDCDC !important;
-    min-height: 50px !important;
-    padding: 0 !important; }
-    .popupStyle .popup .popup-buttons button {
-      background-color: transparent !important;
-      border: 0;
-      color: #014A8C !important; }
-
-.popupStyle.withTitle .popup .popup-head {
-  display: block; }
-  .popupStyle.withTitle .popup .popup-head h3.popup-title {
-    font-size: 1.2em; }
-
-.popupStyle.changeCategory .popup-head {
-  display: block !important; }
-
 .recordPopup {
   display: flex;
   display: -webkit-box;
@@ -296,6 +300,10 @@ body {
     height: 350px; }
     .recordPopup .popup .popup-head {
       display: none; }
+    .recordPopup .popup .recordContainer .fRecord {
+      margin: 0 !important; }
+      .recordPopup .popup .recordContainer .fRecord .waveImg {
+        width: 100%; }
     .recordPopup .popup .recordContainer .row {
       display: flex;
       display: -webkit-box;
@@ -310,7 +318,7 @@ body {
     .recordPopup .popup .recordButtons .popup-buttons {
       width: 100%;
       position: absolute;
-      margin-top: 100px; }
+      margin-top: 60px; }
       .recordPopup .popup .recordButtons .popup-buttons .col {
         display: flex;
         display: -webkit-box;
