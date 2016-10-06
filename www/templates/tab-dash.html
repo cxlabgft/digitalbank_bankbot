@@ -1,53 +1,83 @@
-<ion-view class="distContainer" view-title="Api-Ai">
-  <ion-header-bar class="head">
-    <div class="row">
-      <div class="col co-20" ></div>
-      <div class="col col-50 text-center">
-        <img src="img/bender.png" >
-      </div>
-      <div class="col col-20">
-        <button on-tap="dash.record()" type="button" class="button button-full button-positive" ng-class="{'button-positive':!dash.isRecording, 'button-assertive':dash.isRecording }"><i class="fa fa-microphone" aria-hidden="true"></i></button>
-      </div>
-    </div>
-  </ion-header-bar>
+<ion-side-menus>
+  <!-- Left menu -->
+  <ion-side-menu side="left">
+  </ion-side-menu>
 
-  <ion-content class="padding ">
-    <div class="msgContainer" ng-repeat="message in dash.messages" >
-      <div class="row botResp" ng-class="{'fromBot':message.from=='bot' , 'fromMe': message.from=='me'}">
-        <div class="resp">
-          {{message.text}}
-
-          <button ng-if="message.from=='bot'" class="button button-dark button-small button-outline icon ion-volume-medium" style="margin-left:.5em;" on-tap="dash.reproduceMessage(message.text)">
-          </button>
-
+  <ion-side-menu-content>
+    <ion-view class="distContainer" view-title="Api-Ai">
+      <ion-header-bar class="head">
+        <div class="row fRow">
+          <div class="col col-40 toggleMenu" on-tap="dash.toggleLeft()"><i class="ion-navicon"></i> AMADEUS</div>
+          <div class="col col-60 text-right info" on-tap="dash.showInfo()"><i class="ion-ios-information-outline"></i></div>
         </div>
-      </div>
-      <div ng-switch="message.type">
-        <div ng-switch-when="office">
-          <div class="resp office" ng-include="'templates/offices.html'"></div>
+        <div class="row sRow">
+          <div class="col col-50 text-center" on-tap="dash.changeSlide(0)" ng-class="{'isActive':dash.activeIndex == 0}"><b>CHATS</b></div>
+          <div class="col col-50 text-center" on-tap="dash.changeSlide(1)" ng-class="{'isActive':dash.activeIndex == 1}"><b>MY ACCOUNTS</b></div>
         </div>
+      </ion-header-bar>
+      <ion-slides  options="dash.optionsSlider" slider="data.slider" showPager="false">
+        <ion-slide-page>
+          <div class="box blue">
+            <ion-content class="padding ">
+              <div class="msgContainer" ng-repeat="message in dash.messages" >
+                <div class="row chat" ng-class="{'fromBot':message.from=='bot' , 'fromMe': message.from=='me'}">
+                  <div class="chatContainer">
+                    <img ng-if="message.from=='bot'" src="img/bender.png" class="botImg">
+                    <div class="resp">
+                      {{message.text}}
+                      <!--<button ng-if="message.from=='bot'" class="button button-dark button-small button-outline icon ion-volume-medium" style="margin-left:.5em;" on-tap="dash.reproduceMessage(message.text)">
+                      </button>-->
+                    </div>
+                    <img ng-if="message.from=='me'" src="img/player.png" class="usrImg">
+                  </div>
+                </div>
+                <div ng-switch="message.type">
+                  <div ng-switch-when="office">
+                    <div class="resp office" ng-include="'templates/offices.html'"></div>
+                  </div>
 
-        <div ng-switch-when="contacts">
-          <div class="resp office" ng-include="'templates/contacts.html'"></div>
-        </div>
+                  <div ng-switch-when="contacts">
+                    <div class="resp office" ng-include="'templates/contacts.html'"></div>
+                  </div>
 
-        <div ng-switch-when="exchange">
-          <div class="resp exchange" ng-include="'templates/exchange.html'"></div>
-        </div>
+                  <div ng-switch-when="exchange">
+                    <div class="resp exchange" ng-include="'templates/exchange.html'"></div>
+                  </div>
 
-      </div>
-
-
-    </div>
-  </ion-content>
+                </div>
 
 
-  <ion-footer-bar keyboard-attach class="bar-stable item-input-inset">
-    <label class="item-input-wrapper">
-      <input id="input" ng-model="dash.msg" type="text" placeholder="What do you want" on-return="dash.sendMessage(); dash.closeKeyboard()" on-focus="dash.inputUp()" on-blur="dash.inputDown()" />
-    </label>
-    <button class="button button-clear" on-tap="dash.sendMessage()">
-      <b>Send</b>
-    </button>
-  </ion-footer-bar>
-</ion-view>
+              </div>
+            </ion-content>
+
+
+            <ion-footer-bar keyboard-attach class="bar-stable item-input-inset">
+              <div class="sendInit" ng-class="{'expand':dash.expand}" on-tap="dash.expand = true;">
+                <div ng-if="!dash.expand" class="btnInter text" ><img src="img/chat.png"></div>
+                <label ng-if="dash.expand" class="item-input-wrapper">
+                  <input id="input" ng-model="dash.msg" type="text" placeholder="What do you want" on-return="dash.sendMessage(); dash.closeKeyboard()" on-focus="dash.inputUp()" on-blur="dash.inputDown()" />
+                </label>
+              </div>
+              <button ng-if="dash.msg !=''" class="button button-clear" on-tap="dash.sendMessage()">
+                <b>Send</b>
+              </button>
+              <div ng-if="dash.msg ==''" class="btnInter micro" on-tap="dash.showRecordPopup()"><img  src="img/micro.png"></div>
+            </ion-footer-bar>
+
+          </div>
+        </ion-slide-page>
+        <ion-slide-page>
+          <div class="box yellow"><h1>YELLOW</h1></div>
+        </ion-slide-page>
+        <ion-slide-page>
+          <div class="box pink"><h1>PINK</h1></div>
+        </ion-slide-page>
+      </ion-slides>
+
+    </ion-view>
+  </ion-side-menu-content>
+
+
+</ion-side-menus>
+
+

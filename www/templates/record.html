@@ -1,0 +1,26 @@
+<div class="recordPopup">
+  <div class="recordContainer">
+    <div class="row">
+      <div class="col col-100 text-center">
+        <h3>Speak Now</h3>
+      </div>
+      <div class="col col-100 text-center">
+        <h4>00:00:00</h4>
+      </div>
+      <div class="col col-100 text-center">
+        <h3>Imagen</h3>
+      </div>
+    </div>
+  </div>
+  <div class="recordButtons">
+    <div class="row popup-buttons">
+      <div class="col btnTrash">
+        <button class="button" on-tap="dash.trash()"><i class="ion-trash-b"></i></button>
+      </div>
+      <div class="col btnRec">
+        <button ng-if="!dash.isRecording" class="button button-positive" on-tap="dash.recordVoice()"><i class="ion-play"></i></button>
+        <button ng-if="dash.isRecording" class="button button-positive" on-tap="dash.recordVoice()"><i class="ion-pause"></i></button>
+      </div>
+    </div>
+  </div>
+</div>

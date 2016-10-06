@@ -2,16 +2,43 @@
   'use strict';
   angular
     .module('App-ai.Dashboard')
-    .controller('DashboardCtrl', DashboardCtrl)
-    .directive('input', input);
+    .controller('DashboardCtrl', DashboardCtrl);
 
-  function DashboardCtrl($scope, $rootScope, $timeout, $ionicScrollDelegate, iBeaconsService, $cordovaBeacon, $cordovaGeolocation) {
+
+  function DashboardCtrl($scope, $rootScope, $timeout, $ionicScrollDelegate, iBeaconsService, $cordovaBeacon, $cordovaGeolocation, $ionicSideMenuDelegate, $ionicSlideBoxDelegate, $ionicPopup, IonicClosePopupService) {
 
     var self = this;
 
     //Var Definitoons
     self.response = {};
     self.messages = [];
+    self.activeIndex = 0;
+    self.msg = "";
+    self.expand=false;
+    self.optionsSlider = {
+      loop: false,
+      speed: 500,
+      pagination: false
+    };
+    self.isRecording = false;
+
+
+
+    $scope.$on("$ionicSlides.sliderInitialized", function(event, data){
+      // data.slider is the instance of Swiper
+      $scope.slider = data.slider;
+    });
+
+    $scope.$on("$ionicSlides.slideChangeEnd", function(event, data){
+      // note: the indexes are 0-based
+      self.activeIndex = data.slider.activeIndex;
+      $scope.$apply();
+      $scope.previousIndex = data.slider.previousIndex;
+    });
+
+    self.toggleLeft = function() {
+      $ionicSideMenuDelegate.toggleLeft();
+    };
 
 
     //Method Definitions
@@ -23,19 +50,18 @@
     self.record = record;
     self.showRoute = showRoute;
     self.reproduceMessage = reproduceMessage;
+    self.changeSlide = changeSlide;
+    self.showInfo = showInfo;
+    self.showRecordPopup = showRecordPopup;
+    self.recordVoice = recordVoice;
+    self.trash = trash;
 
     var recognition;
     var isIOS = ionic.Platform.isWebView() && ionic.Platform.isIOS();
     var isAndroid = ionic.Platform.isWebView() && ionic.Platform.isAndroid();
     var isBrowser = false; //cordova-plugin-device
 
-      $timeout(function(){
-        $cordovaGeolocation.getCurrentPosition().then(function(){
-          $cordovaBeacon.requestAlwaysAuthorization().then(function(){
-            iBeaconsService.searchBeacons();
-          });
-        });
-      },3000);
+
 
 
 
@@ -161,6 +187,9 @@
             case 'getExchange':
               getExchange(response);
               break;
+            default:
+              printResponse(response, 'noAction');
+              break;
           }
         } else {
           printResponse(response, 'noAction');
@@ -235,43 +264,50 @@
         alert("Your device not support native text to speech")
       }
     }
-  }
 
-  function input($timeout) {
-    return {
-      restrict: 'E',
-      scope: {
-        'returnClose': '=',
-        'onReturn': '&',
-        'onFocus': '&',
-        'onBlur': '&'
-      },
-      link: function (scope, element, attr) {
-        element.bind('focus', function (e) {
-          if (scope.onFocus) {
-            $timeout(function () {
-              scope.onFocus();
-            });
+    function changeSlide(index){
+      self.activeIndex = index;
+      $scope.slider.update(false);
+      $scope.slider.slideTo(index, 0, false);
+    }
+
+    function showInfo(){
+      $cordovaGeolocation.getCurrentPosition().then(function(){
+        $cordovaBeacon.requestAlwaysAuthorization().then(function(){
+          iBeaconsService.searchBeacons();
+        });
+      });
+    }
+
+    function showRecordPopup(){
+        self.confirmPopup  = $ionicPopup.confirm({
+          title: '',
+          templateUrl: 'templates/record.html',
+          cssClass:'recordPopup',
+          scope: $scope,
+          buttons:[]
+        });
+
+        IonicClosePopupService.register(self.confirmPopup);
+
+        self.confirmPopup.then(function(res) {
+          if(res) {
+            console.log('You are sure');
+          } else {
+            console.log('You are not sure');
           }
         });
-        element.bind('blur', function (e) {
-          if (scope.onBlur) {
-            $timeout(function () {
-              scope.onBlur();
-            });
-          }
-        });
-        element.bind('keydown', function (e) {
-          if (e.which == 13) {
-            if (scope.returnClose) element[0].blur();
-            if (scope.onReturn) {
-              $timeout(function () {
-                scope.onReturn();
-              });
-            }
-          }
-        });
-      }
+
+    }
+
+    function recordVoice(){
+      self.isRecording = !self.isRecording;
+    }
+
+    function trash(){
+      self.confirmPopup.close();
     }
   }
+
+
 })();

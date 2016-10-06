@@ -8,6 +8,7 @@
  angular.module('App-ai', [
   'ionic',
    'ngCordova',
+   'ionic.closePopup',
    'App-ai.Common',
   'App-ai.Dashboard',
   'App-ai.Activity'

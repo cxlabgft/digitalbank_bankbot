@@ -12,10 +12,15 @@ $bsTxt: #00b1ca;
 $bsColor: #008bc5;
 $bsTxtColor: #FFFFFF;
 
+body{
+  font-family: 'Roboto', sans-serif !important;
+}
+
 @mixin flex {
     display: flex;
-    display: -webkit-flex;
     display: -webkit-box;
+    display: -webkit-flex;
+
 }
 
 @mixin aligns-items($align: stretch) {
@@ -37,6 +42,62 @@ $bsTxtColor: #FFFFFF;
     text-align: center !important;
 }
 
+.bar.bar-stable.bar-footer{
+  background-image:none;
+  background-color: #fff;
+}
+.bar-footer{
+  height:80px;
+  @include flex();
+  @include aligns-items(center);
+  @include justify-content(center);
+
+  label{
+    margin:0;
+    height:40px;
+    margin-right:.8em;
+  }
+  input{  height:40px;}
+  .btnInter{
+    width: 40px;
+    height: 40px;
+    &.micro {
+      margin-left: .3em;
+    }
+    background: #01a4b6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    img{
+      width: 20px;
+      height: 20px;
+    }
+  }
+  .sendInit{
+    overflow:hidden;
+    -webkit-transition: width 1s ease-in-out;
+    -moz-transition: width 1s ease-in-out;
+    -o-transition: width 1s ease-in-out;
+    transition: width 1s ease-in-out;
+    width:40px;
+    height:40px;
+    border-radius:50px;
+    background-color:#01a4b6;
+    label{background:#fff;border:2px solid #ccc;}
+    &.expand{
+      background-color:#fff;
+      overflow:hidden;
+      -webkit-transition: width 1s ease-in-out;
+      -moz-transition: width 1s ease-in-out;
+      -o-transition: width 1s ease-in-out;
+      transition: width 1s ease-in-out;
+      border-radius:5px;
+      width:85%;
+    }
+  }
+}
+
 .login{
     .loginLogo{
         margin:2em 0em;
@@ -51,59 +112,67 @@ $bsTxtColor: #FFFFFF;
 }
 
 .distContainer{
-    background-image: url("../img/background.jpg");
     .head{
-        background-color:transparent;
-        height: 150px !important;
+        background-color:#00bad1;
+        height: 120px !important;
         border:0;
-        .row{
-            @include flex();
-            @include aligns-items(center);
-            @include justify-content(center)
-            font-size:1.5em;
-            margin-bottom: 1em;
-            img{width:100px;}
-            button{
-                border-radius:50px;
-                width:60px;
-                height:60px;
-                @include flex();
-                @include aligns-items(center);
-                @include justify-content(center);
-                i{font-size: 1.2em;}
-            }
+        padding-bottom: 0em;
+        border-bottom:1px solid #000;
+        @include flex();
+        @include aligns-items(center);
+        flex-direction:column;
+        color:#fff;
+        .fRow{
+          @include aligns-items(center);
+          margin-bottom:1em;
         }
+        .sRow{
+          padding: 0em;
+          .isActive{
+            border-bottom:3px solid #fff;
+          }
+        }
+        .toggleMenu{
+          @include flex();
+          @include aligns-items(center);
+          font-size:1.2em;
+          i{font-size: 2.2em; margin-right:.5em;}
+        }
+        .info{font-size:2.5em;}
     }
     .has-header{
         top:110px !important;
     }
     .bar{background-image:none;}
-    .question{
-        margin:0;
-        margin-bottom: .5em !important;
+    .msgContainer{
+      @include flex();
+      @include aligns-items(center);
+      @include justify-content(center);
+      .chatContainer{
         @include flex();
         @include aligns-items(center);
-        .qCol{
-            @include flex();
-            @include aligns-items(center);
-            @include justify-content(center);
-            .form-group{width:100%;}
-        }
+      }
     }
-    .botResp{
+    .chat{
         &.fromMe{
             justify-content:flex-end;
             text-align:right;
+            .usrImg{width:30px;height:30px;  margin-left:.2em; border-radius:50px;}
             .resp{
-                background: #16db16;
-                border: 1px solid #16db16;
+                background: #00bad1;
+                border: 1px solid #00bad1;
+                color:#fff;
+                border-radius: 20px 20px 0px;
+
             }
         }
         &.fromBot{
             justify-content:flex-start;
+            .botImg{width:30px;height:30px;  margin-right:.2em; border-radius:50px;}
             .resp{
-                background: #1fcdd7;
-                border: 1px solid #1fcdd7;
+                background: #eceff1;
+                border: 1px solid #eceff1;
+                border-radius: 20px 20px 20px 0px;
                 .wide-as-needed {
                   overflow: scroll;
                   white-space: nowrap;
@@ -216,3 +285,50 @@ $bsTxtColor: #FFFFFF;
   }
 }
 
+.recordPopup{
+  .popup{
+    width:100% !important;
+    .popup-head{display:none;}
+    .recordContainer{
+      .row{
+        @include flex();
+        @include aligns-items(center);
+        @include justify-content(center);
+        flex-direction:column;
+      }
+    }
+    .recordButtons{
+      .popup-buttons{
+        width:100%;
+        position: absolute;
+        margin-top:4em !important;
+        .col{
+          @include flex();
+          @include aligns-items(center);
+          &.btnTrash{@include justify-content(flex-end !important);}
+          &.btnTrash{@include justify-content(flex-start);}
+        }
+        .button{
+          flex:0 !important;
+          border-radius:50px;
+          width:50px;
+          height:50px;
+          background: #f4f4f4;
+          margin: 0 1em;
+          -webkit-box-shadow: 0px 0px 24px 2px rgba(0,0,0,0.4);
+          -moz-box-shadow: 0px 0px 24px 2px rgba(0,0,0,0.4);
+          box-shadow: 0px 0px 24px 2px rgba(0,0,0,0.4);
+          &.button-positive{
+            background:#01a4b6;
+          }
+          i{font-size:1.5em;}
+          .ion-trash-b{
+            color:#cdcdcd;
+          }
+        }
+      }
+    }
+
+
+  }
+}
