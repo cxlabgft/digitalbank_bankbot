@@ -41,7 +41,7 @@ body {
 .popupStyle.changeCategory .popup-head {
   display: block !important; }
 
-.bar-footer {
+.recordButtons {
   height: 100px;
   display: flex;
   display: -webkit-box;
@@ -52,13 +52,13 @@ body {
   justify-content: center;
   -webkit-justify-content: center;
   -webkit-box-pack: center; }
-  .bar-footer label {
+  .recordButtons label {
     margin: 0;
     height: 40px;
     margin-right: .8em; }
-  .bar-footer input {
+  .recordButtons input {
     height: 40px; }
-  .bar-footer .btnInter {
+  .recordButtons .btnInter {
     width: 50px;
     height: 50px;
     -webkit-box-shadow: 0px 0px 24px 2px rgba(0, 0, 0, 0.4);
@@ -69,12 +69,12 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 50px; }
-    .bar-footer .btnInter.micro {
+    .recordButtons .btnInter.micro {
       margin-left: 40px; }
-    .bar-footer .btnInter img {
+    .recordButtons .btnInter img {
       width: 20px;
       height: 20px; }
-  .bar-footer .sendInit {
+  .recordButtons .sendInit {
     overflow: hidden;
     -webkit-transition: width 1s ease-in-out;
     -moz-transition: width 1s ease-in-out;
@@ -87,10 +87,10 @@ body {
     height: 50px;
     border-radius: 50px;
     background-color: #01a4b6; }
-    .bar-footer .sendInit label {
+    .recordButtons .sendInit label {
       background: #fff;
       border: 2px solid #ccc; }
-    .bar-footer .sendInit.expand {
+    .recordButtons .sendInit.expand {
       background-color: #fff;
       overflow: hidden;
       -webkit-transition: width 1s ease-in-out;
@@ -315,26 +315,28 @@ body {
       -webkit-justify-content: center;
       -webkit-box-pack: center;
       flex-direction: column; }
-    .recordPopup .popup .recordButtons .popup-buttons {
+    .recordPopup .popup .recordButtonsPopup .popup-buttons {
       width: 100%;
       position: absolute;
       margin-top: 60px; }
-      .recordPopup .popup .recordButtons .popup-buttons .col {
+      .recordPopup .popup .recordButtonsPopup .popup-buttons .col {
         display: flex;
         display: -webkit-box;
         display: -webkit-flex;
         align-items: center;
         -webkit-align-items: center;
         -webkit-box-align: center; }
-        .recordPopup .popup .recordButtons .popup-buttons .col.btnTrash {
+        .recordPopup .popup .recordButtonsPopup .popup-buttons .col.btnTrash {
           justify-content: flex-end !important;
           -webkit-justify-content: flex-end !important;
           -webkit-box-pack: flex-end !important; }
-        .recordPopup .popup .recordButtons .popup-buttons .col.btnTrash {
+          .recordPopup .popup .recordButtonsPopup .popup-buttons .col.btnTrash .redBtn {
+            background: #e02727 !important; }
+        .recordPopup .popup .recordButtonsPopup .popup-buttons .col.btnTrash {
           justify-content: flex-start;
           -webkit-justify-content: flex-start;
           -webkit-box-pack: flex-start; }
-      .recordPopup .popup .recordButtons .popup-buttons .button {
+      .recordPopup .popup .recordButtonsPopup .popup-buttons .button {
         flex: 0 !important;
         border-radius: 50px;
         width: 50px;
@@ -344,9 +346,9 @@ body {
         -webkit-box-shadow: 0px 0px 24px 2px rgba(0, 0, 0, 0.4);
         -moz-box-shadow: 0px 0px 24px 2px rgba(0, 0, 0, 0.4);
         box-shadow: 0px 0px 24px 2px rgba(0, 0, 0, 0.4); }
-        .recordPopup .popup .recordButtons .popup-buttons .button.button-positive {
+        .recordPopup .popup .recordButtonsPopup .popup-buttons .button.button-positive {
           background: #01a4b6; }
-        .recordPopup .popup .recordButtons .popup-buttons .button i {
+        .recordPopup .popup .recordButtonsPopup .popup-buttons .button i {
           font-size: 1.5em; }
-        .recordPopup .popup .recordButtons .popup-buttons .button .ion-trash-b {
+        .recordPopup .popup .recordButtonsPopup .popup-buttons .button .ion-trash-b {
           color: #cdcdcd; }

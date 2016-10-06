@@ -21,7 +21,7 @@
       pagination: false
     };
     self.isRecording = false;
-
+    self.messageIntercepted = false;
 
 
     $scope.$on("$ionicSlides.sliderInitialized", function(event, data){
@@ -119,7 +119,7 @@
           if (event.results.length > 0) {
             self.msg = event.results[0][0].transcript;
             $scope.$apply();
-            sendMessage();
+            self.messageIntercepted = true;
           }
         };
         recognition.start();
@@ -291,6 +291,8 @@
         });
 
         IonicClosePopupService.register(self.confirmPopup);
+
+        record();
 
         self.confirmPopup.then(function(res) {
           if(res) {

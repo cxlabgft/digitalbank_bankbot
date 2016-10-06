@@ -1,6 +1,6 @@
 <div>
   <div class="recordContainer">
-    <div class="row fRecord">
+    <div class="row fRecord" ng-if="!dash.messageIntercepted">
       <div class="col col-100 text-center">
         <h3>Speak Now</h3>
       </div>
@@ -11,11 +11,19 @@
         <img class="waveImg" src="img/wave.png">
       </div>
     </div>
+    <div class="row fRecord iUnderstood" ng-if="dash.messageIntercepted">
+      <div class="col col-100 text-center ">
+        {{dash.msg}}
+      </div>
+      <div class="col col-100 text-center">
+        <h4>This is what I understood, is it ok?</h4>
+      </div>
+    </div>
   </div>
-  <div class="recordButtons">
+  <div class="recordButtonsPopup">
     <div class="row popup-buttons">
       <div class="col btnTrash">
-        <button class="button" on-tap="dash.trash()"><i class="ion-trash-b"></i></button>
+        <button class="button" ng-class="{'redBtn':dash.messageIntercepted}" on-tap="dash.trash()"><i class="ion-trash-b"></i></button>
       </div>
       <div class="col btnRec">
         <button ng-if="!dash.isRecording" class="button button-positive" on-tap="dash.recordVoice()"><i class="ion-play"></i></button>

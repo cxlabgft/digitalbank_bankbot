@@ -100,7 +100,7 @@ body{
   }
 }
 
-.bar-footer{
+.recordButtons{
   height:100px;
   @include flex();
   @include aligns-items(center);
@@ -314,6 +314,9 @@ body{
       .fRecord{
         margin:0 !important;
         .waveImg{width:100%;}
+        &.iUnderstood{
+
+        }
       }
       .row{
         @include flex();
@@ -322,7 +325,7 @@ body{
         flex-direction:column;
       }
     }
-    .recordButtons{
+    .recordButtonsPopup{
       .popup-buttons{
         width:100%;
         position: absolute;
@@ -330,7 +333,12 @@ body{
         .col{
           @include flex();
           @include aligns-items(center);
-          &.btnTrash{@include justify-content(flex-end !important);}
+          &.btnTrash{
+            @include justify-content(flex-end !important);
+            .redBtn{
+              background: $tomato !important;
+            }
+          }
           &.btnTrash{@include justify-content(flex-start);}
         }
         .button{
