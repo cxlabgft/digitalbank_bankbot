@@ -280,6 +280,7 @@
     }
 
     function showRecordPopup(){
+      self.isRecording = true;
         self.confirmPopup  = $ionicPopup.confirm({
           title: '',
           templateUrl: 'templates/record.html',

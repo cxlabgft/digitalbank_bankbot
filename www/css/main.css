@@ -13,7 +13,7 @@ body {
   background-color: #fff; }
 
 .bar-footer {
-  height: 80px;
+  height: 100px;
   display: flex;
   display: -webkit-box;
   display: -webkit-flex;
@@ -30,15 +30,18 @@ body {
   .bar-footer input {
     height: 40px; }
   .bar-footer .btnInter {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
+    -webkit-box-shadow: 0px 0px 24px 2px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0px 0px 24px 2px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 0px 24px 2px rgba(0, 0, 0, 0.4);
     background: #01a4b6;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50px; }
     .bar-footer .btnInter.micro {
-      margin-left: .3em; }
+      margin-left: 40px; }
     .bar-footer .btnInter img {
       width: 20px;
       height: 20px; }
@@ -48,8 +51,11 @@ body {
     -moz-transition: width 1s ease-in-out;
     -o-transition: width 1s ease-in-out;
     transition: width 1s ease-in-out;
-    width: 40px;
-    height: 40px;
+    -webkit-box-shadow: 0px 0px 24px 2px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0px 0px 24px 2px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 0px 24px 2px rgba(0, 0, 0, 0.4);
+    width: 50px;
+    height: 50px;
     border-radius: 50px;
     background-color: #01a4b6; }
     .bar-footer .sendInit label {
@@ -80,6 +86,9 @@ body {
 
 .login .errorLogin {
   color: red; }
+
+.generalChat.has-footer {
+  bottom: 90px !important; }
 
 .distContainer .head {
   background-color: #00bad1;
@@ -260,7 +269,7 @@ body {
       color: #7dad03; }
   .popupStyle .popup .popup-buttons {
     border-top: 1px solid #DCDCDC !important;
-    min-height: 40px !important;
+    min-height: 50px !important;
     padding: 0 !important; }
     .popupStyle .popup .popup-buttons button {
       background-color: transparent !important;
@@ -275,53 +284,61 @@ body {
 .popupStyle.changeCategory .popup-head {
   display: block !important; }
 
-.recordPopup .popup {
-  width: 100% !important; }
-  .recordPopup .popup .popup-head {
-    display: none; }
-  .recordPopup .popup .recordContainer .row {
-    display: flex;
-    display: -webkit-box;
-    display: -webkit-flex;
-    align-items: center;
-    -webkit-align-items: center;
-    -webkit-box-align: center;
-    justify-content: center;
-    -webkit-justify-content: center;
-    -webkit-box-pack: center;
-    flex-direction: column; }
-  .recordPopup .popup .recordButtons .popup-buttons {
-    width: 100%;
-    position: absolute;
-    margin-top: 4em !important; }
-    .recordPopup .popup .recordButtons .popup-buttons .col {
+.recordPopup {
+  display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  align-items: flex-end;
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end; }
+  .recordPopup .popup {
+    width: 100% !important;
+    height: 350px; }
+    .recordPopup .popup .popup-head {
+      display: none; }
+    .recordPopup .popup .recordContainer .row {
       display: flex;
       display: -webkit-box;
       display: -webkit-flex;
       align-items: center;
       -webkit-align-items: center;
-      -webkit-box-align: center; }
-      .recordPopup .popup .recordButtons .popup-buttons .col.btnTrash {
-        justify-content: flex-end !important;
-        -webkit-justify-content: flex-end !important;
-        -webkit-box-pack: flex-end !important; }
-      .recordPopup .popup .recordButtons .popup-buttons .col.btnTrash {
-        justify-content: flex-start;
-        -webkit-justify-content: flex-start;
-        -webkit-box-pack: flex-start; }
-    .recordPopup .popup .recordButtons .popup-buttons .button {
-      flex: 0 !important;
-      border-radius: 50px;
-      width: 50px;
-      height: 50px;
-      background: #f4f4f4;
-      margin: 0 1em;
-      -webkit-box-shadow: 0px 0px 24px 2px rgba(0, 0, 0, 0.4);
-      -moz-box-shadow: 0px 0px 24px 2px rgba(0, 0, 0, 0.4);
-      box-shadow: 0px 0px 24px 2px rgba(0, 0, 0, 0.4); }
-      .recordPopup .popup .recordButtons .popup-buttons .button.button-positive {
-        background: #01a4b6; }
-      .recordPopup .popup .recordButtons .popup-buttons .button i {
-        font-size: 1.5em; }
-      .recordPopup .popup .recordButtons .popup-buttons .button .ion-trash-b {
-        color: #cdcdcd; }
+      -webkit-box-align: center;
+      justify-content: center;
+      -webkit-justify-content: center;
+      -webkit-box-pack: center;
+      flex-direction: column; }
+    .recordPopup .popup .recordButtons .popup-buttons {
+      width: 100%;
+      position: absolute;
+      margin-top: 100px; }
+      .recordPopup .popup .recordButtons .popup-buttons .col {
+        display: flex;
+        display: -webkit-box;
+        display: -webkit-flex;
+        align-items: center;
+        -webkit-align-items: center;
+        -webkit-box-align: center; }
+        .recordPopup .popup .recordButtons .popup-buttons .col.btnTrash {
+          justify-content: flex-end !important;
+          -webkit-justify-content: flex-end !important;
+          -webkit-box-pack: flex-end !important; }
+        .recordPopup .popup .recordButtons .popup-buttons .col.btnTrash {
+          justify-content: flex-start;
+          -webkit-justify-content: flex-start;
+          -webkit-box-pack: flex-start; }
+      .recordPopup .popup .recordButtons .popup-buttons .button {
+        flex: 0 !important;
+        border-radius: 50px;
+        width: 50px;
+        height: 50px;
+        background: #f4f4f4;
+        margin: 0 1em;
+        -webkit-box-shadow: 0px 0px 24px 2px rgba(0, 0, 0, 0.4);
+        -moz-box-shadow: 0px 0px 24px 2px rgba(0, 0, 0, 0.4);
+        box-shadow: 0px 0px 24px 2px rgba(0, 0, 0, 0.4); }
+        .recordPopup .popup .recordButtons .popup-buttons .button.button-positive {
+          background: #01a4b6; }
+        .recordPopup .popup .recordButtons .popup-buttons .button i {
+          font-size: 1.5em; }
+        .recordPopup .popup .recordButtons .popup-buttons .button .ion-trash-b {
+          color: #cdcdcd; }
