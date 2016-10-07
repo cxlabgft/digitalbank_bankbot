@@ -52,6 +52,7 @@
 
 
             <ion-footer-bar keyboard-attach class="bar-stable item-input-inset recordButtons">
+              {{dash.msg}}
               <div class="sendInit" ng-class="{'expand':dash.expand}" on-tap="dash.expand = true;">
                 <div ng-if="!dash.expand" class="btnInter text" ><img src="img/chat.png"></div>
                 <label ng-if="dash.expand" class="item-input-wrapper">
@@ -61,7 +62,7 @@
               <button ng-if="dash.msg !=''" class="button button-clear" on-tap="dash.sendMessage()">
                 <b>Send</b>
               </button>
-              <div ng-if="dash.msg ==''" class="btnInter micro" on-hold="dash.showRecordPopup()"><img  src="img/micro.png"></div>
+              <div ng-if="dash.msg ==''" class="btnInter micro" ng-class="{'reduceMargin':  dash.expand}" on-hold="dash.showRecordPopup()"><img  src="img/micro.png"></div>
             </ion-footer-bar>
 
           </div>

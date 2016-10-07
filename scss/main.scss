@@ -108,7 +108,7 @@ body{
 
   label{
     margin:0;
-    height:40px;
+    height:50px;
     margin-right:.8em;
   }
   input{  height:40px;}
@@ -118,6 +118,9 @@ body{
     @include box-shadow(0.4);
     &.micro {
       margin-left: 40px;
+      &.reduceMargin{
+        margin-left: 15px;
+      }
     }
     background: $turquoise_blue_two;
     display: flex;
@@ -140,7 +143,7 @@ body{
     height:50px;
     border-radius:50px;
     background-color:$turquoise_blue_two;
-    label{background:#fff;border:2px solid #ccc;}
+    label{background:#fff;}
     &.expand{
       background-color:#fff;
       overflow:hidden;
@@ -315,6 +318,17 @@ body{
         margin:0 !important;
         .waveImg{width:100%;}
         &.iUnderstood{
+          .understoodFromBot{
+            @include flex();
+            @include aligns-items(center);
+            flex-direction: row;
+            .botImg{width:30px;height:30px;  margin-right:.2em; border-radius:50px;}
+            .textBotUnderstood{
+              padding:.5em;
+              border: 1px solid #e4e9ec;
+              border-radius: 20px 20px 20px 0px;
+            }
+          }
 
         }
       }

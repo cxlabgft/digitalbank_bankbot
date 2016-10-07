@@ -54,7 +54,7 @@ body {
   -webkit-box-pack: center; }
   .recordButtons label {
     margin: 0;
-    height: 40px;
+    height: 50px;
     margin-right: .8em; }
   .recordButtons input {
     height: 40px; }
@@ -71,6 +71,8 @@ body {
     border-radius: 50px; }
     .recordButtons .btnInter.micro {
       margin-left: 40px; }
+      .recordButtons .btnInter.micro.reduceMargin {
+        margin-left: 15px; }
     .recordButtons .btnInter img {
       width: 20px;
       height: 20px; }
@@ -88,8 +90,7 @@ body {
     border-radius: 50px;
     background-color: #01a4b6; }
     .recordButtons .sendInit label {
-      background: #fff;
-      border: 2px solid #ccc; }
+      background: #fff; }
     .recordButtons .sendInit.expand {
       background-color: #fff;
       overflow: hidden;
@@ -304,6 +305,23 @@ body {
       margin: 0 !important; }
       .recordPopup .popup .recordContainer .fRecord .waveImg {
         width: 100%; }
+      .recordPopup .popup .recordContainer .fRecord.iUnderstood .understoodFromBot {
+        display: flex;
+        display: -webkit-box;
+        display: -webkit-flex;
+        align-items: center;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        flex-direction: row; }
+        .recordPopup .popup .recordContainer .fRecord.iUnderstood .understoodFromBot .botImg {
+          width: 30px;
+          height: 30px;
+          margin-right: .2em;
+          border-radius: 50px; }
+        .recordPopup .popup .recordContainer .fRecord.iUnderstood .understoodFromBot .textBotUnderstood {
+          padding: .5em;
+          border: 1px solid #e4e9ec;
+          border-radius: 20px 20px 20px 0px; }
     .recordPopup .popup .recordContainer .row {
       display: flex;
       display: -webkit-box;

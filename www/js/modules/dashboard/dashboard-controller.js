@@ -22,7 +22,7 @@
     };
     self.isRecording = false;
     self.messageIntercepted = false;
-
+    self.voiceMsg = "";
 
     $scope.$on("$ionicSlides.sliderInitialized", function(event, data){
       // data.slider is the instance of Swiper
@@ -81,9 +81,11 @@
         for (var i = event.resultIndex; i < event.results.length; ++i) {
           text += event.results[i][0].transcript;
         }
-        self.msg = text;
+        self.voiceMsg = text;
+        console.log(self.voiceMsg);
+        self.messageIntercepted = true;
+        self.isRecording = false;
         $scope.$apply();
-        sendMessage();
         stopRecognition();
       };
       recognition.onend = function () {
@@ -117,9 +119,10 @@
         var recognition = new SpeechRecognition();
         recognition.onresult = function (event) {
           if (event.results.length > 0) {
-            self.msg = event.results[0][0].transcript;
-            $scope.$apply();
+            self.voiceMsg = event.results[0][0].transcript;
+            self.isRecording = false;
             self.messageIntercepted = true;
+            $scope.$apply();
           }
         };
         recognition.start();
@@ -141,11 +144,21 @@
       }
     }
 
+    function resetRecordValues(){
+      $scope.$evalAsync(function () {
+        self.msg = "";
+        self.isRecording = false;
+        self.voiceMsg = "";
+        self.messageIntercepted = false;
+      });
+    }
 
     function sendMessage() {
-
       console.log(self.msg);
-      self.isRecording = false;
+      if(self.voiceMsg !== ""){
+        self.msg = self.voiceMsg;
+        self.confirmPopup.close();
+      }
       self.messages.push({from: 'me', text: self.msg});
       var messageToSend = self.msg;
       self.msg = "";
@@ -171,6 +184,8 @@
     }
 
     function setResponse(val) {
+
+      resetRecordValues();
       console.log("SUCCESS:" + val);
 
 
@@ -280,7 +295,6 @@
     }
 
     function showRecordPopup(){
-      self.isRecording = true;
       $scope.$broadcast('timer-start');
         self.confirmPopup  = $ionicPopup.confirm({
           title: '',
@@ -292,13 +306,15 @@
 
         IonicClosePopupService.register(self.confirmPopup);
 
-        record();
+        recordVoice();
 
         self.confirmPopup.then(function(res) {
           if(res) {
             console.log('You are sure');
           } else {
             console.log('You are not sure');
+            if(recognition){recognition.stop();}
+            resetRecordValues();
           }
         });
 
@@ -306,10 +322,19 @@
 
     function recordVoice(){
       self.isRecording = !self.isRecording;
+      if(!self.isRecording){
+        if(recognition){
+          recognition.stop();
+        }
+      }
+      else{
+        record();
+      }
+
     }
 
     function trash(){
-      self.confirmPopup.close();
+      self.messageIntercepted = false;
     }
   }
 
