@@ -1,3 +1,185 @@
+.noMargin, .onboardingView .footerButtons {
+  margin: 0 !important; }
+
+.noPadding, .onboardingView .footerButtons {
+  padding: 0 !important; }
+
+.onboardingView ion-content {
+  background: #00ddea;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #00ddea 0%, #01a1b5 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #00ddea 0%, #01a1b5 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #00ddea 0%, #01a1b5 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ddea', endColorstr='#01a1b5',GradientType=0 );
+  /* IE6-9 */ }
+
+.onboardingView .headerIcon {
+  background: transparent;
+  height: 60px; }
+  .onboardingView .headerIcon .title {
+    height: 60px;
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -webkit-box-pack: center;
+    align-items: flex-end;
+    -webkit-align-items: flex-end;
+    -webkit-box-align: flex-end; }
+
+.onboardingView ion-content.has-header {
+  bottom: 0;
+  padding-top: 60px;
+  padding-bottom: 50px;
+  top: 0; }
+
+.onboardingView .tutorialCard {
+  -webkit-box-shadow: 0px 0px 18px 0px #737373;
+  -moz-box-shadow: 0px 0px 18px 0px #737373;
+  box-shadow: 0px 0px 18px 0px #737373;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  color: #34aab5;
+  background-color: #00838f; }
+  .onboardingView .tutorialCard .tutorialImage {
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -webkit-box-pack: center;
+    align-items: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    background-color: #00838f;
+    height: 10em;
+    position: relative; }
+    .onboardingView .tutorialCard .tutorialImage .image1 {
+      position: absolute;
+      height: 100%;
+      opacity: .5;
+      width: 100%;
+      background-image: url("../img/tutorial_images/tutorial_1.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat; }
+    .onboardingView .tutorialCard .tutorialImage .image2 {
+      position: absolute;
+      height: 100%;
+      opacity: .5;
+      width: 100%;
+      background-image: url("../img/tutorial_images/tutorial_2.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat; }
+    .onboardingView .tutorialCard .tutorialImage .image3 {
+      position: absolute;
+      height: 100%;
+      opacity: .5;
+      width: 100%;
+      background-image: url("../img/tutorial_images/tutorial_3.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat; }
+    .onboardingView .tutorialCard .tutorialImage .image4 {
+      position: absolute;
+      height: 100%;
+      opacity: .5;
+      width: 100%;
+      background-image: url("../img/tutorial_images/tutorial_4.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat; }
+    .onboardingView .tutorialCard .tutorialImage .botIcon {
+      width: 40%;
+      position: relative; }
+  .onboardingView .tutorialCard .item-body {
+    color: #34aab5;
+    min-height: 12em;
+    padding: 1.7em 1.7em 1.7em 1.4em; }
+    .onboardingView .tutorialCard .item-body .headerSection {
+      font-size: 1.6em;
+      font-weight: bold;
+      margin-top: 0; }
+
+.onboardingView .footerButtons {
+  background: transparent;
+  height: 50px; }
+  .onboardingView .footerButtons .button-bar {
+    font-size: 17px; }
+    .onboardingView .footerButtons .button-bar .button {
+      background-color: #00838f;
+      color: white;
+      font-size: 17px; }
+      .onboardingView .footerButtons .button-bar .button:first-child {
+        border-right: 1px solid #024c53; }
+      .onboardingView .footerButtons .button-bar .button:last-child {
+        border-left: 1px solid #024c53; }
+
+.onboardingView .swiper-pagination.swiper-pagination-bullets .swiper-pagination-bullet-active {
+  background-color: #fff; }
+
+.onboardingView .swiper-pagination.swiper-pagination-bullets .swiper-pagination-bullet {
+  background-color: #fff; }
+
+.onboardingView .swiper-slide {
+  display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  align-items: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center; }
+  .onboardingView .swiper-slide.swiper-slide-next {
+    -webkit-transition: margin 1s;
+    -moz-transition: margin 1s;
+    -ms-transition: margin 1s;
+    -o-transition: margin 1s;
+    transition: margin 1s;
+    margin-left: -16%; }
+    .onboardingView .swiper-slide.swiper-slide-next .tutorialImage {
+      -webkit-transition: height 0.5s;
+      -moz-transition: height 0.5s;
+      -ms-transition: height 0.5s;
+      -o-transition: height 0.5s;
+      transition: height 0.5s;
+      height: 14em; }
+  .onboardingView .swiper-slide.swiper-slide-prev {
+    -webkit-transition: margin 1s;
+    -moz-transition: margin 1s;
+    -ms-transition: margin 1s;
+    -o-transition: margin 1s;
+    transition: margin 1s;
+    margin-right: 16%;
+    margin-left: 16%; }
+    .onboardingView .swiper-slide.swiper-slide-prev .tutorialImage {
+      -webkit-transition: height 0.5s;
+      -moz-transition: height 0.5s;
+      -ms-transition: height 0.5s;
+      -o-transition: height 0.5s;
+      transition: height 0.5s;
+      height: 14em; }
+  .onboardingView .swiper-slide.swiper-slide-active {
+    -webkit-transition: margin 1s;
+    -moz-transition: margin 1s;
+    -ms-transition: margin 1s;
+    -o-transition: margin 1s;
+    transition: margin 1s;
+    margin-left: -32%;
+    margin-right: 0; }
+    .onboardingView .swiper-slide.swiper-slide-active .tutorialImage {
+      -webkit-transition: height 0.5s;
+      -moz-transition: height 0.5s;
+      -ms-transition: height 0.5s;
+      -o-transition: height 0.5s;
+      transition: height 0.5s;
+      height: 10em; }
+    .onboardingView .swiper-slide.swiper-slide-active:first-child {
+      margin-left: 0; }
+
 /*Colors */
 body {
   font-family: 'Roboto', sans-serif !important; }

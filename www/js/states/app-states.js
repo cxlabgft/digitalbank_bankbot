@@ -9,6 +9,26 @@ angular.module('App-ai')
   $stateProvider
 
   // setup an abstract state for the tabs directive
+
+
+    .state('tutorial', {
+      url: '/tutorial',
+      templateUrl: 'templates/tutorial.html',
+      controller: 'TutorialController',
+      controllerAs: 'tutorialCtrl'
+    })
+
+    .state('onboarding', {
+      url: '/onboarding',
+      abstract: true,
+      template: '<ion-nav-view></ion-nav-view>'
+    })
+
+    .state('onboarding.signup-f', {
+      url: '/onboarding',
+      template: ''
+    })
+
     .state('tab', {
     url: '/tab',
     abstract: true,
@@ -38,6 +58,6 @@ angular.module('App-ai')
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/tutorial');
 
 });
