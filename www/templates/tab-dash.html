@@ -52,15 +52,14 @@
 
 
             <ion-footer-bar keyboard-attach class="bar-stable item-input-inset recordButtons">
-              {{dash.msg}}
               <div class="sendInit" ng-class="{'expand':dash.expand}" on-tap="dash.expand = true;">
                 <div ng-if="!dash.expand" class="btnInter text" ><img src="img/chat.png"></div>
                 <label ng-if="dash.expand" class="item-input-wrapper">
                   <input id="input" ng-model="dash.msg" type="text" placeholder="What do you want" on-return="dash.sendMessage(); dash.closeKeyboard()" on-focus="dash.inputUp()" on-blur="dash.inputDown()" />
                 </label>
               </div>
-              <button ng-if="dash.msg !=''" class="button button-clear" on-tap="dash.sendMessage()">
-                <b>Send</b>
+              <button ng-if="dash.msg !=''" class="btnInter micro" ng-class="{'reduceMargin':  dash.expand}"  on-tap="dash.sendMessage()">
+                <i class="ion-paper-airplane"></i>
               </button>
               <div ng-if="dash.msg ==''" class="btnInter micro" ng-class="{'reduceMargin':  dash.expand}" on-hold="dash.showRecordPopup()"><i class="ion-android-microphone"></i></div>
             </ion-footer-bar>
