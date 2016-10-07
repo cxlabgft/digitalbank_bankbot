@@ -71,6 +71,9 @@ body {
     border-radius: 50px; }
     .recordButtons .btnInter.micro {
       margin-left: 40px; }
+      .recordButtons .btnInter.micro i {
+        color: #fff;
+        font-size: 1.5em; }
       .recordButtons .btnInter.micro.reduceMargin {
         margin-left: 15px; }
     .recordButtons .btnInter img {
@@ -303,8 +306,8 @@ body {
       display: none; }
     .recordPopup .popup .recordContainer .fRecord {
       margin: 0 !important; }
-      .recordPopup .popup .recordContainer .fRecord .waveImg {
-        width: 100%; }
+      .recordPopup .popup .recordContainer .fRecord #soundwave canvas {
+        width: 100% !important; }
       .recordPopup .popup .recordContainer .fRecord.iUnderstood .understoodFromBot {
         display: flex;
         display: -webkit-box;
@@ -350,6 +353,8 @@ body {
           -webkit-box-pack: flex-end !important; }
           .recordPopup .popup .recordButtonsPopup .popup-buttons .col.btnTrash .redBtn {
             background: #e02727 !important; }
+        .recordPopup .popup .recordButtonsPopup .popup-buttons .col .btnRec i {
+          color: #fff; }
         .recordPopup .popup .recordButtonsPopup .popup-buttons .col.btnTrash {
           justify-content: flex-start;
           -webkit-justify-content: flex-start;

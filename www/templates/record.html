@@ -8,7 +8,7 @@
         <h4>00:00:00</h4>
       </div>
       <div class="col col-100 text-center">
-        <img class="waveImg" src="img/wave.png">
+          <div id="soundwave"></div>
       </div>
     </div>
     <div class="row fRecord iUnderstood animate pulse" ng-if="dash.messageIntercepted">
@@ -35,7 +35,7 @@
         <button class="button" ng-class="{'redBtn':dash.messageIntercepted}" on-tap="dash.trash()"><i class="ion-trash-b"></i></button>
       </div>
       <div class="col btnRec">
-        <button ng-if="!dash.isRecording && !dash.messageIntercepted" class="button button-positive" on-tap="dash.recordVoice()"><i class="ion-play"></i></button>
+        <button ng-if="!dash.isRecording && !dash.messageIntercepted" class="button button-positive" on-tap="dash.recordVoice()"><i class="ion-android-microphone"></i></button>
         <button ng-if="!dash.isRecording && dash.messageIntercepted" class="button button-positive" on-tap="dash.sendMessage()"><i class="ion-checkmark"></i></button>
         <button ng-if="dash.isRecording" class="button button-positive" on-tap="dash.recordVoice()"><i class="ion-pause"></i></button>
       </div>

@@ -118,6 +118,9 @@ body{
     @include box-shadow(0.4);
     &.micro {
       margin-left: 40px;
+      i{color:#fff;
+        font-size:1.5em;
+      }
       &.reduceMargin{
         margin-left: 15px;
       }
@@ -316,7 +319,9 @@ body{
     .recordContainer{
       .fRecord{
         margin:0 !important;
-        .waveImg{width:100%;}
+        #soundwave {
+         canvas{width:100% !important;}
+        }
         &.iUnderstood{
           .understoodFromBot{
             @include flex();
@@ -353,6 +358,7 @@ body{
               background: $tomato !important;
             }
           }
+          .btnRec{i{color:#fff;}}
           &.btnTrash{@include justify-content(flex-start);}
         }
         .button{
@@ -379,3 +385,5 @@ body{
 
   }
 }
+
+

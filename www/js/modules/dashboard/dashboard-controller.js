@@ -307,6 +307,18 @@
         IonicClosePopupService.register(self.confirmPopup);
 
         recordVoice();
+        $timeout(function(){
+          var SW = new SiriWave({
+            width: 259,
+            height: 70,
+            speed: 0.12,
+            amplitude: 1,
+            color:'#01a1b5',
+            container: document.getElementById('soundwave'),
+            autostart: true
+          });
+        },100);
+
 
         self.confirmPopup.then(function(res) {
           if(res) {
