@@ -49,9 +49,11 @@ $base_section_header_font_size: 1.6em;
 }
 
 @mixin bg-tutorial-image($path) {
-  position: absolute;
   height: 100%;
+  left: 0;
   opacity: .5;
+  position: absolute;
+  top: 0;
   width: 100%;
   @include bgimage($path, cover, center, no-repeat);
 }
@@ -86,7 +88,7 @@ $base_section_header_font_size: 1.6em;
     bottom: 0;
     padding-top: $base_header_size;
     padding-bottom: $base_footer_size;
-    top: 0;
+    top: 0 !important;
   }
   .tutorialCard {
     -webkit-box-shadow: 0px 0px 18px 0px rgba(115, 115, 115, 1);
